@@ -10,7 +10,8 @@
     "lint": "ng lint",
     "preinstall": "npx only-allow pnpm",
     "format": "prettier --write .",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "deploy": "ng deploy --base-href=/portfolio-product-feedback-app/"
   },
   "private": true,
   "dependencies": {
