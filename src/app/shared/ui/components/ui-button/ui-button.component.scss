@@ -1,0 +1,71 @@
+:host {
+    display: inline-block;
+}
+
+button {
+    font-family: Jost, sans-serif;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    height: 2.75rem;
+    border: none;
+    border-radius: 0.625rem;
+    background: unset;
+    gap: 16px;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+button.underline-hover:hover {
+    text-decoration: underline;
+}
+
+button.tall {
+    height: 3.3125rem;
+}
+
+button.accent {
+    color: var(--color-white);
+    background: var(--color-primary-accent);
+
+    &:hover {
+        background: var(--color-primary-accent-lighter);
+    }
+}
+
+button.primary {
+    color: var(--color-white);
+    background: var(--color-primary);
+
+    &:hover {
+        background: var(--color-primary-lighter);
+    }
+}
+
+button.dark {
+    color: var(--color-white);
+    background: var(--color-primary-dark);
+
+    &:hover {
+        background: var(--color-primary-dark-lighter);
+    }
+}
+
+button.destructive {
+    color: var(--color-white);
+    background: var(--color-destructive);
+
+    &:hover {
+        background: var(--color-destructive-lighter);
+    }
+}
+
+button.bare {
+    color: var(--color-text-secondary);
+    background: unset;
+}

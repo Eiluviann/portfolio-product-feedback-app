@@ -1,0 +1,11 @@
+<button
+	[attr.aria-label]="ariaLabel"
+	[ngClass]="getClasses()"
+	role="button">
+	@if (icon) {
+		<fa-icon
+			[icon]="icon"
+			aria-hidden="true"></fa-icon>
+	}
+	<ng-content></ng-content>
+</button>

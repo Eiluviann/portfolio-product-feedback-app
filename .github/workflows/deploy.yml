@@ -1,58 +1,55 @@
 name: Node.js CI
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    push:
+        branches: ['main']
+    pull_request:
+        branches: ['main']
 
-  workflow_dispatch:
+    workflow_dispatch:
 
 permissions:
-  contents: write
-  pages: write
-  id-token: write
-
+    contents: write
+    pages: write
+    id-token: write
 
 jobs:
+    build:
+        environment:
+            name: github-pages
+            url: ${{ steps.deployment.outputs.page_url }}
+        runs-on: ubuntu-latest
 
-  build:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                node-version: [18.x]
 
-    strategy:
-      matrix:
-        node-version: [ 18.x ]
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v3
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+            - name: Use Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v3
+              with:
+                  node-version: ${{ matrix.node-version }}
+                  cache: 'pnpm'
+                  cache-dependency-path: pnpm-lock.yaml
 
+            - name: Install Dependencies
+              working-directory: .
+              run: pnpm install
 
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'pnpm'
-          cache-dependency-path: pnpm-lock.yaml
+            - name: Build
+              working-directory: .
+              run: pnpm run build --if-present
 
-      - name: Install Dependencies
-        working-directory: .
-        run: pnpm install
+            - name: Setup Pages
+              uses: actions/configure-pages@v3
+            - name: Upload artifact
+              uses: actions/upload-pages-artifact@v2
+              with:
+                  path: './dist/'
 
-      - name: Build
-        working-directory: .
-        run: pnpm run build --if-present
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v3
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
-        with:
-          path: './dist/'
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v2
+            - name: Deploy to GitHub Pages
+              id: deployment
+              uses: actions/deploy-pages@v2

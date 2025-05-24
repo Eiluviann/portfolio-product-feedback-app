@@ -1,0 +1,25 @@
+<div class="board-bar-container">
+    <div class="counter-container ui-h3">
+        <fa-icon
+            [icon]="faLightbulb"
+            aria-hidden="true"></fa-icon>
+        <span>{{ suggestionCount() }} Suggestions</span>
+    </div>
+    <div class="sort-container">
+        <span class="label">Sort by:</span>
+        <select [(ngModel)]="selectedSortingOption">
+            @for (sortingOption of sortingOptions; track $index) {
+                <option [value]="sortingOption">
+                    {{ BoardSortingLabels[sortingOption] }}
+                </option>
+            }
+        </select>
+    </div>
+    <div class="add-feedback-container">
+        <ui-button
+            [buttonType]="ButtonType.Accent"
+            [icon]="faPlus">
+            Add Feedback
+        </ui-button>
+    </div>
+</div>

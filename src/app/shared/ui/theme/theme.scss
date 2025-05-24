@@ -1,0 +1,75 @@
+@font-face {
+	font-family: Jost;
+	src: url('/assets/fonts/jost.ttf') format('truetype');
+	font-display: swap;
+}
+
+:root {
+	font-family: Jost, sans-serif;
+
+	--color-primary: #4661e6;
+	--color-primary-lighter: #7c91f9;
+	--color-primary-dark: #3a4374;
+	--color-primary-dark-lighter: #656ea3;
+	--color-primary-accent: #ad1fea;
+	--color-primary-accent-lighter: #c75af6;
+	--color-background-default: #f7f8fd;
+	--color-surface-light: #f2f4ff;
+	--color-white: #fff;
+	--color-text-primary: #3a4374;
+	--color-text-secondary: #647196;
+	--color-warning: #f49f85;
+	--color-info: #62bcfa;
+	--color-destructive: #d73737;
+	--color-destructive-lighter: #e98888;
+}
+
+html {
+	font-size: 16px;
+}
+
+.ui-h1 {
+	font-size: 1.5rem;
+	font-weight: bold;
+	line-height: 2.1875rem;
+	letter-spacing: -0.33;
+}
+
+.ui-h2 {
+	font-size: 1.25rem;
+	font-weight: bold;
+	line-height: 1.8125rem;
+	letter-spacing: -0.25;
+}
+
+.ui-h3 {
+	font-size: 1.125rem;
+	font-weight: bold;
+	line-height: 1.625rem;
+	letter-spacing: -0.25;
+}
+
+.ui-h4 {
+	font-size: 0.875rem;
+	font-weight: bold;
+	line-height: 1.25rem;
+	letter-spacing: -0.2;
+}
+
+.ui-body1 {
+	font-size: 1rem;
+	font-weight: normal;
+	line-height: 1.4375rem;
+}
+
+.ui-body2 {
+	font-size: 0.9375rem;
+	font-weight: normal;
+	line-height: 1.375rem;
+}
+
+.ui-body3 {
+	font-size: 0.8125rem;
+	font-weight: normal;
+	line-height: 1.1875rem;
+}
